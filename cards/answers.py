@@ -1,4 +1,4 @@
-white_cards = [
+answers = [
     "Throwing grapes at a man until he loses touch with reality.",
     "A stray pube.",
     "Facebook.",

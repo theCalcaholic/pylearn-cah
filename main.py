@@ -1,7 +1,9 @@
-questions = ["q1", "q2", "q3", "q4"]
-answers = ["a1", "a2", "a3", "a4"]
+#!/usr/bin/env python
+
+from cards import answers, questions
 
 
 
 if __name__ == "__main__":
-  pass
+    print(answers)
+    print(questions)

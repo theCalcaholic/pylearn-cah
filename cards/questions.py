@@ -1,4 +1,4 @@
-black_cards = [
+questions = [
     "Next from J.K. Rowling: <i>Harry Potter and the Chamber of ____.</i>",
     "What's there a ton of in heaven?",
     "It's a pity that kids these days are all getting involved with ____.",
