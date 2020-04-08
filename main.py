@@ -3,16 +3,6 @@
 from cards import answers, questions
 from random import choice, sample
 
-#shopping_list = ["Aepfel", "Milch",
-#    "Zucker"]
-
-#print(shopping_list[2])
-#print(choice (shopping_list))
-
-
-# if __name__ == "__main__":
-#     print(answers)
-#     print(questions)
 
 selection = 0
 answers_sample = []
