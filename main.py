@@ -10,9 +10,8 @@ answers_sample = []
 while selection <= len(answers_sample):
     print(choice(questions))
     answers_sample = sample(answers, 3)
-    #print(answers_sample)
+    
     # ["a", "b", "c"] -enumerate-> [(0, "a"), (1, "b"), (2, "c")]
-
     for nr, a in enumerate(answers_sample): 
         print( f"   {str(nr+1)} {a}")
 
