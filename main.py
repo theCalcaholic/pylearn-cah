@@ -38,8 +38,9 @@ while run_loop:
     if selection == -1:
         run_loop = False
     elif selection is None:
-        user_input = input("Try again. Selection: ")
-        selection = get_user_selection(user_input)
+        pass
+        # user_input = input("Try again. Selection: ")
+        # selection = get_user_selection(user_input)
     else:
         print(answers_sample[selection-1])
 
