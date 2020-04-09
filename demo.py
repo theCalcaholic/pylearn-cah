@@ -1,4 +1,4 @@
-from cards import answers
+from cards import questions
 
 questions = [
     {
@@ -15,4 +15,4 @@ questions = [
     }
 ]
 
-print(answers[0])
+print(questions[0])
