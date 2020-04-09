@@ -1,4 +1,4 @@
-{"pick": "1", "text": "Next from J.K. Rowling: <i>Harry Potter and the Chamber of ____.</i>"},
+answers=[{"pick": "1", "text": "Next from J.K. Rowling: <i>Harry Potter and the Chamber of ____.</i>"},
 {"pick": "1", "text": "What's there a ton of in heaven?"},
 {"pick": "1", "text": "It's a pity that kids these days are all getting involved with ____."},
 {"pick": "1", "text": "What's a girl's best friend?"},
@@ -87,4 +87,4 @@
 {"pick": "1", "text": "I'm not like the rest of you. I'm too rich and busy for ____."},
 {"pick": "1", "text": "The healing process began when I joined a support group for victims of ____."},
 {"pick": "1", "text": "Doctor, you've gone too far! The human body wasn't meant to withstand that amount of ____!"},
-{"pick": "1", "text": "Only two things in life are certain: death and ____."},
+{"pick": "1", "text": "Only two things in life are certain: death and ____."}]
