@@ -23,7 +23,7 @@ user_input_invalid = True
 
 
 while run_loop:
-    question = choice(questions)
+    question = choice(questions)["text"]
     valid_input = False
     print(question)
     answers_sample = sample(answers, 3)
