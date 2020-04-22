@@ -1,4 +1,4 @@
-from cards import questions
 
+from random import choice
 
-print(questions[0]["pick"])
+print(choice(["Moe", "Simon"]))

@@ -2,9 +2,11 @@
 
 # Roadmap
 
-1. Support multipick questions
+1. [M] Support multipick questions
     - **hint:** Another loop?
-2. Make hand cards persist between rounds
+    - **hint:** `"".replace("old", "new", max_amount)`
+2. [S] Make hand cards persist between rounds
+    - **hint:** `answers_sample.remove('A sea of troubles')` (lists allow removal by value)
 3. Prevent cards from being repeatedly drawn
     - **hint:** Couldn't it work like a real card deck?
 4. **Refactoring stop:** Let's think about how we can improve our existing code

@@ -15,38 +15,49 @@ def get_user_selection(inp):
     
     return None
 
-
-selection = 0
-answers_sample = []
-run_loop = True
-user_input_invalid = True
-
-
-while run_loop:
-    question = choice(questions)["text"]
+def handle_user_input(available_answers):
     valid_input = False
-    print(question)
+    selection = 0
+    while valid_input == False:
+        user_input = input("Selection: ")
+        selection = get_user_selection(user_input)
+        if selection == -1:
+            valid_input = True
+            return False, None
+        elif selection is None:
+            valid_input = False
+            print("Try again!")
+        else:
+            user_answer = available_answers[selection-1]
+            valid_input = True
+            return True, user_answer
+
+
+answers_sample = []
+
+while True:
+    question = choice(questions)
+    question_text = question["text"]
+    question_pick = question["pick"]
+    print(question_text)
     answers_sample = sample(answers, 3)
     
     # ["a", "b", "c"] -enumerate-> [(0, "a"), (1, "b"), (2, "c")]
     for nr, a in enumerate(answers_sample):
         print( f"   {nr+1} {a}" )
     
-    while valid_input == False:
-        user_input = input("Selection: ")
-        selection = get_user_selection(user_input)
-        if selection == -1:
-            run_loop = False
-            valid_input = True
-        elif selection is None:
-            valid_input = False
-            print("Try again!")
-        else:
-            if "____" in question:
-                answer = question.replace("____", answers_sample[selection-1])
-            else: 
-                answer = question + "\n" + answers_sample[selection-1]
-            print(answer + "\n")
-            valid_input = True
-
+    selected_answers = []
     
+    while question_pick > len(selected_answers):
+        run_loop, answer = handle_user_input(answers_sample)
+        selected_answers.append(answer)
+
+    if not run_loop:
+        break
+        
+    if "____" in question_text:
+        output = question_text.replace("____", answer)
+    else: 
+        output = question_text + "\n" + answer
+    print(output + "\n")
+
