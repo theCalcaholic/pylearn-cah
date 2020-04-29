@@ -19,27 +19,25 @@ def get_user_selection(inp):
     
     return None
 
-def handle_user_input(available_answers):
-#Umgang mit Input    
+def handle_user_input(available_answers): 
+    """
+    Umgang mit Input
+    """
+    
     valid_input = False
     selection = 0
-    while valid_input == False:
-        user_input = input("Selection: ")
-        #Eingabeaufforderung
-        selection = get_user_selection(user_input)
-                    #siehe definition
+    while True:
+        user_input = input("Selection: ") #Eingabeaufforderung
+        selection = get_user_selection(user_input) #siehe definition
         if selection == -1:
             #"end"
-            valid_input = True
             return False, None
         elif selection is None:
             #Kein valider Input
-            valid_input = False
             print("Try again!")
         else:
             #valider Input ohne "end"
             user_answer = available_answers[selection-1]
-            valid_input = True
             return True, user_answer
 
 
@@ -48,7 +46,8 @@ new_answers = []
 answers_sample = sample(answers, 3)
 
 while True:
-    
+    #question = {"pick": 0}
+    #while question["pick"] < 2:
     question = choice(questions)
     question_text = question["text"]
     question_pick = question["pick"]
@@ -63,16 +62,20 @@ while True:
     while question_pick > len(selected_answers):
         run_loop, answer = handle_user_input(answers_sample)
         selected_answers.append(answer)
-        
 
+        if not run_loop:
+            break
+        
+        if "____" in question_text:
+            question_text = question_text.replace("____", answer, 1)
+        else:
+            question_text = question_text + "\n" + answer
+
+    
     if not run_loop:
         break
-        
-    if "____" in question_text:
-        output = question_text.replace("____", answer)
-    else: 
-        output = question_text + "\n" + answer
-    print(output + "\n")
+
+    print(question_text + "\n")
 
     
     
