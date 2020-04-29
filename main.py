@@ -75,6 +75,8 @@ while True:
     print(output + "\n")
 
     
-    answers_sample = comprehension(answers_sample, selected_answers)
+    
+    for element in selected_answers:
+        answers_sample.remove(element)
     new_answers = sample(answers, question_pick)
     answers_sample = answers_sample + new_answers

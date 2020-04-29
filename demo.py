@@ -1,4 +1,4 @@
-
+from cards import questions
 from random import choice
 
 
@@ -6,6 +6,10 @@ from random import choice
 answer = ["abc", "garstig"]
 better_answer = ["abc", "gründlich", "garstig"]
 
-best_answer = comprehension(better_answer, answer)
+#best_answer = comprehension(better_answer, answer)
 
-print(best_answer)
+
+for key, value in questions[0].items():
+    print(f"{key}: {value}")
+
+#print(best_answer)
