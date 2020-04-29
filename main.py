@@ -54,8 +54,6 @@ while True:
     question_pick = question["pick"]
     print(question_text)
     
-
-    
     # ["a", "b", "c"] -enumerate-> [(0, "a"), (1, "b"), (2, "c")]
     for nr, a in enumerate(answers_sample):
         print( f"   {nr+1} {a}" )
@@ -65,6 +63,7 @@ while True:
     while question_pick > len(selected_answers):
         run_loop, answer = handle_user_input(answers_sample)
         selected_answers.append(answer)
+        
 
     if not run_loop:
         break
@@ -77,5 +76,5 @@ while True:
 
     
     answers_sample = comprehension(answers_sample, selected_answers)
-    new_answers = sample(answers, int(question_pick))
+    new_answers = sample(answers, question_pick)
     answers_sample = answers_sample + new_answers
