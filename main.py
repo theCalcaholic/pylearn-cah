@@ -43,8 +43,11 @@ def handle_user_input(available_answers):
 
 answers_sample = []
 new_answers = []
+old_answers = []
 answers_sample = sample(answers, 3)
-
+for card in answers_sample:
+    answers.remove(card)
+    old_answers.append(card)
 while True:
     #question = {"pick": 0}
     #while question["pick"] < 2:
@@ -64,6 +67,7 @@ while True:
         selected_answers.append(answer)
 
         if not run_loop:
+            answers.extend(old_answers)
             break
         
         if "____" in question_text:
@@ -73,13 +77,16 @@ while True:
 
     
     if not run_loop:
+        answers.extend(old_answers)
         break
 
     print(question_text + "\n")
 
-    
-    
+
     for element in selected_answers:
         answers_sample.remove(element)
     new_answers = sample(answers, question_pick)
     answers_sample = answers_sample + new_answers
+    for card in new_answers:
+        answers.remove(card)
+        old_answers.append(card)
