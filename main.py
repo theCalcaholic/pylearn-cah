@@ -44,6 +44,8 @@ def handle_user_input(available_answers):
 answers_sample = []
 new_answers = []
 answers_sample = sample(answers, 3)
+for card in answers_sample:
+    answers.remove(card)
 
 while True:
     #question = {"pick": 0}
@@ -71,6 +73,7 @@ while True:
         else:
             question_text = question_text + "\n" + answer
 
+    answers.extend(selected_answers)
     
     if not run_loop:
         break
@@ -82,4 +85,6 @@ while True:
     for element in selected_answers:
         answers_sample.remove(element)
     new_answers = sample(answers, question_pick)
+    for hand_card in new_answers:
+        answers.remove(hand_card)
     answers_sample = answers_sample + new_answers
