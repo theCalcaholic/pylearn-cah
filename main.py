@@ -24,7 +24,6 @@ def handle_user_input(available_answers):
     Umgang mit Input
     """
     
-    valid_input = False
     selection = 0
     while True:
         user_input = input("Selection: ") #Eingabeaufforderung
@@ -87,4 +86,4 @@ while True:
     new_answers = sample(answers, question_pick)
     for hand_card in new_answers:
         answers.remove(hand_card)
-    answers_sample = answers_sample + new_answers
+    answers_sample = answers_sample + new_answers # TODO: Variable umbenennen

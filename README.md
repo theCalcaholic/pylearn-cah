@@ -15,16 +15,16 @@
     - code duplication
     - modularity
     - _Introducing:_ The Zen of Python
-4. Implement simple web interface
+5. Implement simple web interface
     1. Your first 3rd party package: Flask
     2. demo web application (hello world)
     3. refactor existing code into a library (no code outside functions)
     4. Show game in browser
     5. Sending data back (introducing HTML forms)
-5. Add multi user support
+6. Add multi user support
     1. Manage basic user ids
     2. Implement game rounds
     3. Use sessions
-6. Improve the interface
+7. Improve the interface
     1. Make it pretty (introducing HTML and Styling - maybe bootstrap or similar?)
     2. Make it interactive (introducing _some_ Javascript)
