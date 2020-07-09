@@ -1,37 +1,16 @@
 #!/usr/bin/env python
 
-from cards import answers as answers_pool, questions
+from cards import answers as answers_pool, questions # TODO: Move to util
 from random import choice, sample
-from util import handle_user_input, get_new_cards
+from util import handle_user_input, draw_cards, get_question, remove_selected_answers
 
 
-answers = []
-answers.extend(answers_pool)
-answers_sample = []
-new_answers = []
-
-answers_sample = get_new_cards(answers_sample, answers, 3)
-
-while True:
-
-    # get_question(...) -> util
-    question = choice(questions)
-    question_text = question["text"]
-    question_pick = question["pick"]
-
-
-    print(question_text)
-    
-    # ["a", "b", "c"] -enumerate-> [(0, "a"), (1, "b"), (2, "c")]
-    for nr, a in enumerate(answers_sample):
-        print( f"   {nr+1} {a}" )
-    
-
-    # user_select_answers(...)
+def user_select_answers (question_pick, hand_answers, question_text): 
     selected_answers = []
+
     
     while question_pick > len(selected_answers):
-        run_loop, answer = handle_user_input(answers_sample)
+        run_loop, answer = handle_user_input(hand_answers)
         selected_answers.append(answer)
 
         if not run_loop:
@@ -42,19 +21,37 @@ while True:
         else:
             question_text = question_text + "\n" + answer
     
+    return selected_answers, run_loop, question_text
+    
 
+# get_answers -> util
+answers = []
+answers.extend(answers_pool)
+new_answers = []
+
+hand_answers = draw_cards(answers, 3)
+
+while True:
+
+    question = get_question()
+    question_text = question["text"]
+    question_pick = question["pick"]
+
+
+    print(question_text)
+    
+    # ["a", "b", "c"] -enumerate-> [(0, "a"), (1, "b"), (2, "c")]
+    for nr, a in enumerate(hand_answers):
+        print( f"   {nr+1} {a}" )
+    
+    selected_answers, run_loop, question_text = user_select_answers (question_pick, hand_answers, question_text)
+    
     if not run_loop:
         break
 
     print(question_text + "\n")
 
-    # remove_selected_answers(...) -> util
-    for element in selected_answers:
-        answers_sample.remove(element)
-    if len(answers) < question_pick:
-        answers = []
-        answers.extend(answers_pool)
+    answers, hand_answers = remove_selected_answers() # TODO: Remaining parameters
     
-    # get_new_cards(...) -> util
-    new_answers = get_new_cards(answers_sample, answers, question_pick)
-    answers_sample = answers_sample + new_answers # TODO: Variable umbenennen
+    new_answers = draw_cards(answers, question_pick)
+    hand_answers = hand_answers + new_answers # TODO: Variable umbenennen

@@ -10,11 +10,14 @@
 3. [S + M] Prevent cards from being repeatedly drawn
     - **hint:** Couldn't it work like a real card deck?
     - **hint:** `from random import shuffle`
-4. **Refactoring stop:** Let's think about how we can improve our existing code
+4. **Refactoring stop:** Let's think about how we can improve our existing code <-- you are here
     - readibility
     - code duplication
     - modularity
     - _Introducing:_ The Zen of Python
+5. Game state
+    - Implement central game state (introducing classes/objects)
+    - discuss programming paradigms (imperative, functional, object oriented)
 5. Implement simple web interface
     1. Your first 3rd party package: Flask
     2. demo web application (hello world)

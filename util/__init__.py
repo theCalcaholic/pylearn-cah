@@ -1,9 +1,10 @@
 from random import choice, sample
+from cards import questions, answers as answers_pool
 
 def comprehension(a, b):
      return [x for x in a if x not in b]
 
-def get_new_cards(answers_sample, answers, question_pick):
+def draw_cards(answers, question_pick):
     answers_sample = sample(answers, question_pick)
     for card in answers_sample:
         answers.remove(card)
@@ -41,3 +42,18 @@ def handle_user_input(available_answers):
             #valider Input ohne "end"
             user_answer = available_answers[selection-1]
             return True, user_answer
+
+def get_question():
+    question = choice(questions)
+    return question 
+
+    # remove_selected_answers(...) -> util
+def remove_selected_answers(selected_answers, hand_answers, question_pick):
+
+    for element in selected_answers:
+        hand_answers.remove(element)
+    if len(answers) < question_pick:
+        answers = []
+        answers.extend(answers_pool)
+
+    return answers, hand_answers
